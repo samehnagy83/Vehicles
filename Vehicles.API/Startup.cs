@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Vehicles.API.Data;
+using Vehicles.API.Services;
 
 namespace Vehicles.API
 {
@@ -25,6 +26,7 @@ namespace Vehicles.API
             {
                 x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            services.AddTransient<MenuMasterService, MenuMasterService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
